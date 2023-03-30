@@ -1,26 +1,18 @@
 /* -------------------------------------------------------------------------------------------
-                              Password Character Array
-          - Uses an array to store the user password preferences
-          - Prompts push password character options into the user preference array
-          - Creates a random function to pick an item from the preference array
+                              Password Character String
+          - Uses a string to store user password preferences
+          - Prompts adds password character options into the user preference string
+          - Creates a random function to pick an item from the preference string
+          - Uses method charAt to randomly select a character from the string
 --------------------------------------------------------------------------------------------*/
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Password Genereator Function
 function generatePassword() {
-
-  // Avaliable character array
-  let characters = [];
-
-  // Arrays with possible characters, based on user preferences
-  const charLow = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  const charCap = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  const charNum = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const charSym = ["!", "#", "$", "%", "&", "?", "@"];
-
+  // Defines start of password avaliable characters
+  let characters = "";
 
   // Asks for a password length and converts it into a number
   let inputLength = parseInt( prompt("Specify length of password between 8 and 128.") );
@@ -30,32 +22,34 @@ function generatePassword() {
     alert(`Sorry, you didn't provide a number between 8 and 128. Please try again.`);
     return;
   } else {
-    alert(`Sounds Good! You want a password ${inputLength} characters long.`);
+    alert(`Sounds good! You want a password ${inputLength} characters long.`);
   }
 
-  // Asks if LETTERS are wanted in password
+  // Asks if letters are wanted in password
   let inputLow = confirm("Do you want letters in your password?");
   if (inputLow) {
-    characters.push(...charLow);
-  }
-  // Asks if CAPITOL LETTERS are wanted in password
-  let inputCap = confirm("Do you want any capitol letters in your password?");
-  if (inputCap) {
-    characters.push(...charCap);
-  }
-  // Asks if NUMBERS are wanted in password
-  let inputNum = confirm("Do you want numbers in your password?");
-  if (inputNum) {
-    characters.push(...charNum);
-  }
-  // Asks if SPECIAL CHARACTERS are wanted in password
-  let inputSym = confirm("Do you want any special characters in your password?");
-  if (inputSym) {
-    characters.push(...charSym);
+    characters += "abcdefghijklmnopqrstuvwxyz";
   }
 
-  // Checks that user designated at least on parameter
-  if (characters.length === 0) {
+  // Asks if numbers are wanted in password
+  let inputNum = confirm("Do you want numbers in your password?");
+  if (inputNum) {
+    characters += "1234567890";
+  }
+
+  // Asks if capitol letters are wanted in password
+  let inputCap = confirm("Do you want any capitol letters in your password?");
+  if (inputCap) {
+    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+
+  // Asks if special characters are wanted in password
+  let inputSym = confirm("Do you want any special characters in your password?");
+  if (inputSym) {
+    characters += `!#$%&?@`;
+  }
+
+  if (characters === "") {
     alert(`You didn't select any parameters for your password. Please try again.`);
     return;
   }
@@ -64,7 +58,7 @@ function generatePassword() {
   function password() {
     let result = '';
     for (let i = 0; i < inputLength; i++) {
-      result += characters[(Math.floor(Math.random() * characters.length) )];                         
+      result += characters.charAt(Math.floor(Math.random() * characters.length) );                         
     }
     return result;
   }
