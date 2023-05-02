@@ -4,6 +4,12 @@ UCF Module 03 Challenge - Javascript Password Generator
 
 ## Description
 
+<br />
+
+*Click on this [**LINK**](https://werthird.github.io/Password-Generator-Module-3/) to see out deployed site!.*
+
+<br />
+
 The goal of this project was to code a JavaScript function to generate a random password based upon the users preferences.
 
 UCF GitLab starter code was provided. This included the HTML, CSS, Assets folder, and JavaScript file. The JavaScript file contained all the code to run the Password Generator Function, but didn't include the actual function.
@@ -36,6 +42,12 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+
+<br />
+
+<img style="text-align: center; border: solid 2px white; width:100%;height:100%" src="./Assets/password-generator-screenshot.jpg" alt="Passowrd generator"/>
+
+<br />
 
 ## Notes
 Included in the repository for this challenge is another folder call **another_solution**. This includes another way for the Password Generator Function to run, using strings instead of arrays. It was the first solution that worked for me. I decided I wanted to build the function based more on what we have learned in the class so far, so I rewrote the function to use arrays to store the password characters, not strings. It was left in this repo to save for future reference. Please ignore if not applicaple to the grade of this project.
